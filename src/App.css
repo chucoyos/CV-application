@@ -45,6 +45,28 @@ h1 {
 	font-size: 32px;
 	margin-bottom: 16px;
 }
+.decorationBar {
+	position: relative;
+	top: -80px;
+	z-index: -2;
+	bottom: -100px;
+	left: 0;
+	width: 100%;
+	height: 200px;
+	background: #2dc46a;
+	transform: skewY(-6deg);
+}
+.decorationBar {
+	position: relative;
+	top: -80px;
+	z-index: -2;
+	bottom: -100px;
+	left: 0;
+	width: 100%;
+	height: 200px;
+	background: #2dc46a;
+	transform: skewY(-6deg);
+}
 /* Footer */
 .footer {
 	background-color: black;
