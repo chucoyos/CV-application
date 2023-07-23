@@ -137,3 +137,72 @@ h1 {
 	font-weight: bold;
 	text-decoration: none;
 }
+/* GeneralDetails */
+.form-card {
+	position: relative;
+	top: -160px;
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	border-radius: 4px;
+	max-width: 80%;
+	padding: 32px;
+	box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.35);
+	-webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.35);
+	-moz-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.35);
+}
+.section-group {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+.form-group {
+	display: flex;
+	border-top: 0.5px solid rgb(198, 193, 193);
+	padding: 16px 0;
+}
+.form-group .input-group {
+	margin-left: 24px;
+	width: auto;
+}
+.camera {
+	font-size: 38px;
+	align-self: center;
+	border: 2px dotted gray;
+	cursor: pointer;
+	padding: 16px 8px 0 16px;
+	background-color: rgb(238, 234, 234);
+	text-align: center;
+}
+.camera > span {
+	font-size: 16px;
+	color: rgb(144, 140, 140);
+}
+.input-group {
+	display: flex;
+	flex-direction: column;
+}
+.input-duo > .input-group {
+	width: 47%;
+}
+.form-title {
+	margin-bottom: 16px;
+	font-size: 14px;
+}
+.input-duo {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 100%;
+}
+.btn-group {
+	display: flex;
+	justify-content: end;
+	margin-top: 16px;
+}
+.btn-group button,
+input {
+	margin-right: 8px;
+	cursor: pointer;
+}

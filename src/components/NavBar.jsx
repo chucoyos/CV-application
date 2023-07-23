@@ -11,9 +11,11 @@ const NavBar = ({ path, text }) => {
 					</Link>
 				</li>
 				<li>
-					<Link to='/cv-project/general'>Create Resume</Link>
+					<Link to='/general-details'>Create Resume</Link>
 				</li>
-				<li>Resume Templates</li>
+				<li>
+					<Link to='/experiences'>Experiences</Link>
+				</li>
 				<li>Blog</li>
 				<li>Contact</li>
 			</ul>
@@ -23,7 +25,7 @@ const NavBar = ({ path, text }) => {
 					Create your own professional resume and download it
 				</p>
 				<Button
-					path='/general'
+					path='/general-details'
 					text='Create your Resume'
 				/>
 			</>
