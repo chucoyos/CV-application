@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
 import '../App.css'
+import Button from './Button'
 const NavBar = ({ path, text }) => {
 	return (
 		<nav className='Nav'>
 			<ul className='nav-list'>
 				<li className='nav-brand'>
-					<Link to='/cv-project'>
+					<Link to='/'>
 						<span>cv</span>project
 					</Link>
 				</li>
@@ -21,10 +22,10 @@ const NavBar = ({ path, text }) => {
 				<p className='subtitle'>
 					Create your own professional resume and download it
 				</p>
-				{/* <Button
-						path='/cv-project/general'
-						text='Create your Resume'
-					/> */}
+				<Button
+					path='/general'
+					text='Create your Resume'
+				/>
 			</>
 
 			{/* {location.pathname === '/cv-project/general' && (
