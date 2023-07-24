@@ -46,12 +46,12 @@ const ExperienceCard = (props) => {
 				>
 					<hr />
 					{/* Form goes here */}
-					{/* {props.form} */}
+					{props.form}
 				</div>{' '}
 				{/* end div id= educationForm */}
 				<button
 					className='add'
-					// onClick={toggleForm}
+					onClick={toggleForm}
 				>
 					<span>+</span>Add another {props.experienceName}
 				</button>

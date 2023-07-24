@@ -8,6 +8,19 @@ const Experiences = (props) => {
 		formContainer.style.display = toggleStyle
 	}
 
+	const handleInterest = (e) => {
+		props.setInterest(e.target.value)
+	}
+	const onInterestSubmit = (e) => {
+		e.preventDefault()
+		props.setInterests([
+			...props.interests,
+			{ interest: props.interest, id: Math.random() * 1000 },
+		])
+		props.setInterest('')
+		toggleForm('interestForm')
+	}
+
 	// const educationList = props.education.map((edu) => (
 	// 	<li key={edu.id}>
 	// 		<hr />
@@ -182,14 +195,14 @@ const Experiences = (props) => {
 	// )
 
 	const interestsForm = (
-		<form onSubmit={props.onInterestSubmit}>
+		<form onSubmit={onInterestSubmit}>
 			<div className='inputGroup'>
 				<label>Hobby</label>
 				<input
 					type='text'
 					placeholder='e.g. Hiking'
 					value={props.interest}
-					onChange={props.handleInterest}
+					onChange={handleInterest}
 					required
 				/>
 			</div>
@@ -350,7 +363,9 @@ const Experiences = (props) => {
 			<ExperienceCard
 				cardTitle='Interests'
 				interests={props.interests}
-				// education={props.education}
+				setInterests={props.setInterests}
+				interest={props.interest}
+				setInterest={props.setInterest}
 				count={props.interests.length}
 				list={interestsList}
 				divId='interestsCard'

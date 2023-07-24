@@ -12,6 +12,7 @@ function Router() {
 		{ interest: 'Hiking', id: 1 },
 		{ interest: 'Reading', id: 2 },
 	])
+	const [interest, setInterest] = useState('')
 	const router = createBrowserRouter([
 		{
 			path: '/',
@@ -37,6 +38,8 @@ function Router() {
 						<Experiences
 							interests={interests}
 							setInterests={setInterests}
+							interest={interest}
+							setInterest={setInterest}
 						/>
 					),
 				},
