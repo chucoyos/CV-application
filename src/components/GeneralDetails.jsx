@@ -101,7 +101,7 @@ const GeneralDetails = ({ generalInfo, setGeneralInfo }) => {
 			</div>
 			<Button
 				text='Next step ﹥'
-				path='/cv-project/experiences'
+				path='/experiences'
 			/>
 		</div>
 	)

@@ -206,3 +206,138 @@ input {
 	margin-right: 8px;
 	cursor: pointer;
 }
+/* Experiences */
+.experiencesCard {
+	position: relative;
+	top: -190px;
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	cursor: pointer;
+	margin: 32px auto;
+	padding: 32px;
+	width: 60%;
+	border: none;
+	border-radius: 4px;
+	box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.35);
+	-webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.35);
+	-moz-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.35);
+}
+.cardHeader {
+	align-self: self-start;
+	margin-bottom: 16px;
+}
+.cardHeader:hover {
+	text-decoration: underline;
+}
+hr {
+	margin: 16px 0 16px 0;
+	border-top: 1px solid rgb(246, 244, 244);
+	color: rgb(232, 228, 228);
+}
+.cardTitle {
+	font-size: medium;
+}
+.cardTitle > span {
+	background-color: blue;
+	border-radius: 50%;
+	padding: 1px 5px;
+	font-size: x-small;
+	font-weight: bold;
+	color: #fff;
+	position: relative;
+	top: -14px;
+	left: 10px;
+}
+.cardBody {
+	display: none;
+}
+.inputDuo {
+	display: flex;
+	justify-content: space-between;
+}
+.inputGroup {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+.inputDuo p {
+	justify-self: center;
+}
+.inputDuo .inputGroup {
+	max-width: 49%;
+}
+.inputGroup > label {
+	text-align: start;
+	font-size: small;
+}
+.inputGroup p {
+	color: #b9b4b4;
+}
+.btnGroup {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 26px;
+}
+.btnGroup button {
+	padding: 2px 10px;
+	font-size: xx-small;
+	background-color: #fff;
+	border: 0.1px solid #b9b4b4;
+	border-radius: 2px;
+	cursor: pointer;
+}
+input,
+textarea {
+	border: 2px solid #e6e2e2;
+	border-radius: 4px;
+	padding: 8px;
+	resize: none;
+	width: 100%;
+}
+.btnGroup button:hover {
+	text-decoration: underline;
+}
+.first {
+	margin-right: 16px;
+}
+.add {
+	margin-top: 16px;
+	width: 100%;
+	border: none;
+	padding: 8px 0;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.add:hover {
+	text-decoration: underline;
+}
+.add span {
+	position: relative;
+	right: 2px;
+	top: -2px;
+	border: 1px solid #000;
+	border-radius: 50%;
+	padding: 1px 4px;
+	font-size: x-small;
+}
+.educationList .inputGroup {
+	align-items: start;
+}
+.educationList ul {
+	padding-left: 0;
+}
+.educationList li {
+	list-style-type: none;
+}
+.editList {
+	display: flex;
+	align-items: center;
+	gap: 32px;
+}
+.editList button {
+	border: none;
+	background-color: #fff;
+	cursor: pointer;
+	margin-right: 24px;
+}

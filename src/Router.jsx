@@ -8,6 +8,10 @@ import { useState } from 'react'
 
 function Router() {
 	const [generalInfo, setGeneralInfo] = useState({})
+	const [interests, setInterests] = useState([
+		{ interest: 'Hiking', id: 1 },
+		{ interest: 'Reading', id: 2 },
+	])
 	const router = createBrowserRouter([
 		{
 			path: '/',
@@ -29,7 +33,12 @@ function Router() {
 				},
 				{
 					path: '/experiences',
-					element: <Experiences />,
+					element: (
+						<Experiences
+							interests={interests}
+							setInterests={setInterests}
+						/>
+					),
 				},
 			],
 		},
