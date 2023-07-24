@@ -16,7 +16,7 @@ const ExperienceCard = (props) => {
 		<div className='experiencesCard'>
 			<div
 				className='cardHeader'
-				// onClick={toggleCard}
+				onClick={toggleCard}
 			>
 				<h3 className='cardTitle'>
 					{props.count > 0 && <span>{props.count}</span>}

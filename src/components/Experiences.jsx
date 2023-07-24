@@ -181,34 +181,34 @@ const Experiences = (props) => {
 	// 	</form>
 	// )
 
-	// const interestsForm = (
-	// 	<form onSubmit={props.onInterestSubmit}>
-	// 		<div className={styles.inputGroup}>
-	// 			<label>Hobby</label>
-	// 			<input
-	// 				type='text'
-	// 				placeholder='e.g. Hiking'
-	// 				value={props.interest}
-	// 				onChange={props.handleInterest}
-	// 				required
-	// 			/>
-	// 		</div>
+	const interestsForm = (
+		<form onSubmit={props.onInterestSubmit}>
+			<div className='inputGroup'>
+				<label>Hobby</label>
+				<input
+					type='text'
+					placeholder='e.g. Hiking'
+					value={props.interest}
+					onChange={props.handleInterest}
+					required
+				/>
+			</div>
 
-	// 		<div className={styles.btnGroup}>
-	// 			<button
-	// 				className={styles.first}
-	// 				type='button'
-	// 				onClick={() => {
-	// 					props.setInterest('')
-	// 					toggleForm('interestForm')
-	// 				}}
-	// 			>
-	// 				🗑️ Delete
-	// 			</button>
-	// 			<button type='submit'>💾️ Save</button>
-	// 		</div>
-	// 	</form>
-	// )
+			<div className='btnGroup'>
+				<button
+					className='first'
+					type='button'
+					onClick={() => {
+						props.setInterest('')
+						toggleForm('interestForm')
+					}}
+				>
+					🗑️ Delete
+				</button>
+				<button type='submit'>💾️ Save</button>
+			</div>
+		</form>
+	)
 
 	// const workExperienceForm = (
 	// 	<form onSubmit={props.onWorkExperienceSubmit}>
@@ -356,7 +356,7 @@ const Experiences = (props) => {
 				divId='interestsCard'
 				experienceName='Hobby'
 				formId='interestForm'
-				// form={interestsForm}
+				form={interestsForm}
 			></ExperienceCard>
 		</div>
 	)
