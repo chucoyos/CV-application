@@ -8,10 +8,7 @@ import { useState } from 'react'
 
 function Router() {
 	const [generalInfo, setGeneralInfo] = useState({})
-	const [interests, setInterests] = useState([
-		{ interest: 'Hiking', id: 1 },
-		{ interest: 'Reading', id: 2 },
-	])
+	const [interests, setInterests] = useState([])
 	const [interest, setInterest] = useState('')
 	const router = createBrowserRouter([
 		{
