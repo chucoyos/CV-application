@@ -16,7 +16,9 @@ const NavBar = ({ path, text }) => {
 				<li>
 					<Link to='/experiences'>Experiences</Link>
 				</li>
-				<li>Blog</li>
+				<li>
+					<Link to='./template'>Template</Link>
+				</li>
 				<li>Contact</li>
 			</ul>
 			<>

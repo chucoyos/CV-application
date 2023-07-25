@@ -1,6 +1,7 @@
 import ExperienceCard from './ExperienceCard'
 import { useState } from 'react'
 import { v4 } from 'uuid'
+import Button from './Button'
 
 const Experiences = (props) => {
 	const toggleForm = (id) => {
@@ -509,6 +510,10 @@ const Experiences = (props) => {
 				form={interestsForm}
 				count={props.interests.length}
 			></ExperienceCard>
+			<Button
+				text='Next step ﹥'
+				path='/template'
+			/>
 		</div>
 	)
 }

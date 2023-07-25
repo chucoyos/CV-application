@@ -4,6 +4,7 @@ import App from './App'
 import Home from './components/Home'
 import GeneralDetails from './components/GeneralDetails'
 import Experiences from './components/Experiences'
+import Template from './components/Template'
 import { useState } from 'react'
 
 function Router() {
@@ -45,6 +46,14 @@ function Router() {
 							setInterest={setInterest}
 						/>
 					),
+				},
+				{
+					path: '/template',
+					element: <Template />,
+				},
+				{
+					path: '*',
+					element: <ErrorPage />,
 				},
 			],
 		},

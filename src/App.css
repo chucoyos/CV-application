@@ -5,6 +5,9 @@
 	--tertiary-color: #a39e9e;
 	--quaternary-color: #000000;
 }
+.App {
+	text-align: center;
+}
 .errorDiv {
 	height: 100vh;
 	display: flex;
@@ -79,6 +82,7 @@ h1 {
 	background-color: var(--quaternary-color);
 	color: var(--tertiary-color);
 	padding: 24px;
+	margin-top: 32px;
 }
 .footer ul {
 	display: flex;

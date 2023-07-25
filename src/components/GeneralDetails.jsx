@@ -99,10 +99,10 @@ const GeneralDetails = ({ generalInfo, setGeneralInfo }) => {
 					</div>
 				</form>
 			</div>
-			<Button
-				text='Next step ﹥'
-				path='/experiences'
-			/>
+				<Button
+					text='Next step ﹥'
+					path='/experiences'
+				/>
 		</div>
 	)
 }
