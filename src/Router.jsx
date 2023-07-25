@@ -9,17 +9,7 @@ import { useState } from 'react'
 function Router() {
 	const [generalInfo, setGeneralInfo] = useState({})
 	const [education, setEducation] = useState([])
-	const [workExperience, setWorkExperience] = useState([
-		{
-			jobTitle: 'Web Developer',
-			companyCity: 'San Francisco',
-			company: 'Google',
-			workStartDate: '2019-01-01',
-			workEndDate: '2020-01-01',
-			workDescription: 'I worked as a web developer',
-			id: 1,
-		},
-	])
+	const [workExperience, setWorkExperience] = useState([])
 	const [interests, setInterests] = useState([])
 	const [interest, setInterest] = useState('')
 	const router = createBrowserRouter([
