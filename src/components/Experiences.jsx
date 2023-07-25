@@ -20,6 +20,9 @@ const Experiences = (props) => {
 		props.setInterest('')
 		toggleForm('interestForm')
 	}
+	const onInterestDelete = (id) => {
+		props.setInterests(props.interests.filter((interest) => interest.id !== id))
+	}
 
 	// const educationList = props.education.map((edu) => (
 	// 	<li key={edu.id}>
@@ -62,7 +65,7 @@ const Experiences = (props) => {
 				<div className='editList'>
 					<button
 						onClick={() => {
-							props.onInterestDelete(interest.id)
+							onInterestDelete(interest.id)
 						}}
 					>
 						🗑️
