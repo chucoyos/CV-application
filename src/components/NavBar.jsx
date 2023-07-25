@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
 import '../App.css'
 import Button from './Button'
+import { useLocation } from 'react-router-dom'
 const NavBar = ({ path, text }) => {
+	const location = useLocation()
 	return (
 		<nav className='Nav'>
 			<ul className='nav-list'>
@@ -21,28 +23,33 @@ const NavBar = ({ path, text }) => {
 				</li>
 				<li>Contact</li>
 			</ul>
-			<>
-				<h1>Create your professional Resume with CV project</h1>
-				<p className='subtitle'>
-					Create your own professional resume and download it
-				</p>
-				<Button
-					path='/general-details'
-					text='Create your Resume'
-				/>
-			</>
-
-			{/* {location.pathname === '/cv-project/general' && (
+			{location.pathname === '/' && (
 				<>
-					<h2 className='subtitle'>Personal Details</h2>
+					<h1>Create your professional Resume with CV project</h1>
+					<p className='subtitle'>
+						Create your own professional resume and download it
+					</p>
+					<Button
+						path='/general-details'
+						text='Create your Resume'
+					/>
 				</>
 			)}
-
-			{location.pathname === '/cv-project/experiences' && (
+			{location.pathname === '/general-details' && (
 				<>
-					<h2 className='subtitle'>My experiences</h2>
+					<h1>Personal details</h1>
 				</>
-			)} */}
+			)}
+			{location.pathname === '/experiences' && (
+				<>
+					<h1>My experiences</h1>
+				</>
+			)}
+			{location.pathname === '/template' && (
+				<>
+					<h1>Select template</h1>
+				</>
+			)}
 		</nav>
 	)
 }
