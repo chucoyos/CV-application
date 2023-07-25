@@ -8,6 +8,7 @@ import { useState } from 'react'
 
 function Router() {
 	const [generalInfo, setGeneralInfo] = useState({})
+	const [education, setEducation] = useState([])
 	const [interests, setInterests] = useState([])
 	const [interest, setInterest] = useState('')
 	const router = createBrowserRouter([
@@ -33,6 +34,8 @@ function Router() {
 					path: '/experiences',
 					element: (
 						<Experiences
+							education={education}
+							setEducation={setEducation}
 							interests={interests}
 							setInterests={setInterests}
 							interest={interest}

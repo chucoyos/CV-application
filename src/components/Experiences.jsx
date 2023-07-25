@@ -1,4 +1,6 @@
 import ExperienceCard from './ExperienceCard'
+import { useState } from 'react'
+import { v4 } from 'uuid'
 
 const Experiences = (props) => {
 	const toggleForm = (id) => {
@@ -7,7 +9,68 @@ const Experiences = (props) => {
 			formContainer.style.display === 'block' ? 'none' : 'block'
 		formContainer.style.display = toggleStyle
 	}
+	// Education
+	const [degree, setDegree] = useState('')
+	const [city, setCity] = useState('')
+	const [school, setSchool] = useState('')
+	const [startDate, setStartDate] = useState('')
+	const [endDate, setEndDate] = useState('')
+	const [description, setDescription] = useState('')
+	const handleDegree = (e) => {
+		setDegree(e.target.value)
+	}
+	const handleCity = (e) => {
+		setCity(e.target.value)
+	}
+	const handleSchool = (e) => {
+		setSchool(e.target.value)
+	}
+	const handleStartDate = (e) => {
+		setStartDate(e.target.value)
+	}
+	const handleEndDate = (e) => {
+		setEndDate(e.target.value)
+	}
+	const handleDescription = (e) => {
+		setDescription(e.target.value)
+	}
+	const onEducationSubmit = (e) => {
+		e.preventDefault()
+		props.setEducation([
+			...props.education,
+			{
+				degree: degree,
+				city: city,
+				school: school,
+				startDate: startDate,
+				endDate: endDate,
+				description: description,
+				id: v4(),
+			},
+		])
+		setDegree('')
+		setCity('')
+		setSchool('')
+		setStartDate('')
+		setEndDate('')
+		setDescription('')
+		toggleForm('educationForm')
+	}
+	const onEducationDelete = (id) => {
+		props.setEducation(props.education.filter((edu) => edu.id !== id))
+	}
+	const onEducationEdit = (id) => {
+		const education = props.education.find((edu) => edu.id === id)
+		setDegree(education.degree)
+		setCity(education.city)
+		setSchool(education.school)
+		setStartDate(education.startDate)
+		setEndDate(education.endDate)
+		setDescription(education.description)
+		onEducationDelete(id)
+	}
 
+	// Interests
 	const handleInterest = (e) => {
 		props.setInterest(e.target.value)
 	}
@@ -15,7 +78,7 @@ const Experiences = (props) => {
 		e.preventDefault()
 		props.setInterests([
 			...props.interests,
-			{ interest: props.interest, id: Math.random() * 1000 },
+			{ interest: props.interest, id: v4() },
 		])
 		props.setInterest('')
 		toggleForm('interestForm')
@@ -29,36 +92,36 @@ const Experiences = (props) => {
 		onInterestDelete(id)
 	}
 
-	// const educationList = props.education.map((edu) => (
-	// 	<li key={edu.id}>
-	// 		<hr />
-	// 		<div className={styles.inputDuo}>
-	// 			<div className={styles.inputGroup}>
-	// 				<h3>{edu.degree}</h3>
-	// 				<p>
-	// 					{edu.startDate} / {edu.endDate}
-	// 				</p>
-	// 			</div>
-	// 			<div className={styles.editList}>
-	// 				<button
-	// 					onClick={() => {
-	// 						props.onEducationDelete(edu.id)
-	// 					}}
-	// 				>
-	// 					🗑️
-	// 				</button>
-	// 				<button
-	// 					onClick={() => {
-	// 						props.onEducationEdit(edu.id)
-	// 						toggleForm('educationForm')
-	// 					}}
-	// 				>
-	// 					✏️
-	// 				</button>
-	// 			</div>
-	// 		</div>
-	// 	</li>
-	// ))
+	const educationList = props.education.map((edu) => (
+		<li key={edu.id}>
+			<hr />
+			<div className='inputDuo'>
+				<div className='inputGroup'>
+					<h3>{edu.degree}</h3>
+					<p>
+						{edu.startDate} / {edu.endDate}
+					</p>
+				</div>
+				<div className='editList'>
+					<button
+						onClick={() => {
+							onEducationDelete(edu.id)
+						}}
+					>
+						🗑️
+					</button>
+					<button
+						onClick={() => {
+							onEducationEdit(edu.id)
+							toggleForm('educationForm')
+						}}
+					>
+						✏️
+					</button>
+				</div>
+			</div>
+		</li>
+	))
 
 	const interestsList = props.interests.map((interest) => (
 		<li key={interest.id}>
@@ -119,88 +182,88 @@ const Experiences = (props) => {
 	// 	</li>
 	// ))
 
-	// const educationForm = (
-	// 	<form onSubmit={props.onEducationSubmit}>
-	// 		<div className={styles.inputDuo}>
-	// 			<div className={styles.inputGroup}>
-	// 				<label>Degree</label>
-	// 				<input
-	// 					type='text'
-	// 					name='degree'
-	// 					placeholder='e.g. Bachelor of Science'
-	// 					value={props.degree}
-	// 					onChange={props.handleDegree}
-	// 					required
-	// 				/>
-	// 			</div>
-	// 			<div className={styles.inputGroup}>
-	// 				<label>City/Town</label>
-	// 				<input
-	// 					type='text'
-	// 					placeholder='e.g. San Francisco'
-	// 					value={props.city}
-	// 					onChange={props.handleCity}
-	// 					required
-	// 				/>
-	// 			</div>
-	// 		</div>
-	// 		<div className={styles.inputGroup}>
-	// 			<label>School</label>
-	// 			<input
-	// 				type='text'
-	// 				placeholder='e.g. New York University'
-	// 				value={props.school}
-	// 				onChange={props.handleSchool}
-	// 				required
-	// 			/>
-	// 		</div>
-	// 		<div className={styles.inputDuo}>
-	// 			<div className={styles.inputGroup}>
-	// 				<label>Start Date</label>
-	// 				<input
-	// 					type='date'
-	// 					value={props.startDate}
-	// 					onChange={props.handleStartDate}
-	// 					required
-	// 				/>
-	// 			</div>
-	// 			<div className={styles.inputGroup}>
-	// 				<label>End Date</label>
-	// 				<input
-	// 					type='date'
-	// 					value={props.endDate}
-	// 					onChange={props.handleEndDate}
-	// 					required
-	// 				/>
-	// 			</div>
-	// 		</div>
-	// 		<div className={styles.inputGroup}>
-	// 			<label>Description</label>
-	// 			<textarea
-	// 				value={props.description}
-	// 				onChange={props.handleDescription}
-	// 			/>
-	// 		</div>
-	// 		<div className={styles.btnGroup}>
-	// 			<button
-	// 				className={styles.first}
-	// 				type='button'
-	// 				onClick={() => {
-	// 					props.setDegree('')
-	// 					props.setCity('')
-	// 					props.setSchool('')
-	// 					props.setStartDate('')
-	// 					props.setEndDate('')
-	// 					props.setDescription('')
-	// 					toggleForm('educationForm')
-	// 				}}
-	// 			>
-	// 				🗑️ Delete
-	// 			</button>
-	// 			<button type='submit'>💾️ Save</button>
-	// 		</div>
-	// 	</form>
-	// )
+	const educationForm = (
+		<form onSubmit={onEducationSubmit}>
+			<div className='inputDuo'>
+				<div className='inputGroup'>
+					<label>Degree</label>
+					<input
+						type='text'
+						name='degree'
+						placeholder='e.g. Bachelor of Science'
+						value={degree}
+						onChange={handleDegree}
+						required
+					/>
+				</div>
+				<div className='inputGroup'>
+					<label>City/Town</label>
+					<input
+						type='text'
+						placeholder='e.g. San Francisco'
+						value={city}
+						onChange={handleCity}
+						required
+					/>
+				</div>
+			</div>
+			<div className='inputGroup'>
+				<label>School</label>
+				<input
+					type='text'
+					placeholder='e.g. New York University'
+					value={school}
+					onChange={handleSchool}
+					required
+				/>
+			</div>
+			<div className='inputDuo'>
+				<div className='inputGroup'>
+					<label>Start Date</label>
+					<input
+						type='date'
+						value={startDate}
+						onChange={handleStartDate}
+						required
+					/>
+				</div>
+				<div className='inputGroup'>
+					<label>End Date</label>
+					<input
+						type='date'
+						value={endDate}
+						onChange={handleEndDate}
+						required
+					/>
+				</div>
+			</div>
+			<div className='inputGroup'>
+				<label>Description</label>
+				<textarea
+					value={description}
+					onChange={handleDescription}
+				/>
+			</div>
+			<div className='btnGroup'>
+				<button
+					className='first'
+					type='button'
+					onClick={() => {
+						setDegree('')
+						setCity('')
+						setSchool('')
+						setStartDate('')
+						setEndDate('')
+						setDescription('')
+						toggleForm('educationForm')
+					}}
+				>
+					🗑️ Delete
+				</button>
+				<button type='submit'>💾️ Save</button>
+			</div>
+		</form>
+	)
 
 	const interestsForm = (
 		<form onSubmit={onInterestSubmit}>
@@ -317,45 +380,36 @@ const Experiences = (props) => {
 	return (
 		<div className='App'>
 			{/* Education card */}
-			{/* <ExperienceCard
+			<ExperienceCard
 				cardTitle='Education and Qualifications'
 				education={props.education}
-				onEducationSubmit={props.onEducationSubmit}
-				onEducationDelete={props.onEducationDelete}
+				setEducation={props.setEducation}
 				degree={props.degree}
 				setDegree={props.setDegree}
-				handleDegree={props.handleDegree}
 				city={props.city}
 				setCity={props.setCity}
-				handleCity={props.handleCity}
 				school={props.school}
 				setSchool={props.setSchool}
-				handleSchool={props.handleSchool}
 				startDate={props.startDate}
 				setStartDate={props.setStartDate}
-				handleStartDate={props.handleStartDate}
 				endDate={props.endDate}
 				setEndDate={props.setEndDate}
-				handleEndDate={props.handleEndDate}
-				onEducationEdit={props.onEducationEdit}
 				description={props.description}
 				setDescription={props.setDescription}
-				handleDescription={props.handleDescription}
-				count={props.education.length}
 				list={educationList}
 				experienceName='education'
 				cardBody='educationCardBody'
 				divId='educationCard'
 				formId='educationForm'
 				form={educationForm}
-			></ExperienceCard> */}
+				count={props.education.length}
+			></ExperienceCard>
 
 			{/* Work experience Card */}
 			{/* <ExperienceCard
 				cardTitle='Work Experience'
 				experienceName='work experience'
 				workExperience={props.workExperience}
-				count={props.workExperience.length}
 				jobTitle={props.jobTitle}
 				companyCity={props.companyCity}
 				company={props.company}
@@ -374,12 +428,12 @@ const Experiences = (props) => {
 				setInterests={props.setInterests}
 				interest={props.interest}
 				setInterest={props.setInterest}
-				count={props.interests.length}
 				list={interestsList}
 				divId='interestsCard'
 				experienceName='Hobby'
 				formId='interestForm'
 				form={interestsForm}
+				count={props.interests.length}
 			></ExperienceCard>
 		</div>
 	)
