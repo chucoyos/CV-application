@@ -69,6 +69,68 @@ const Experiences = (props) => {
 		setDescription(education.description)
 		onEducationDelete(id)
 	}
+	// work experience
+	const [jobTitle, setJobTitle] = useState('')
+	const [companyCity, setCompanyCity] = useState('')
+	const [company, setCompany] = useState('')
+	const [workStartDate, setWorkStartDate] = useState('')
+	const [workEndDate, setWorkEndDate] = useState('')
+	const [workDescription, setWorkDescription] = useState('')
+	const handleJobTitle = (e) => {
+		setJobTitle(e.target.value)
+	}
+	const handleCompanyCity = (e) => {
+		setCompanyCity(e.target.value)
+	}
+	const handleCompany = (e) => {
+		setCompany(e.target.value)
+	}
+	const handleWorkStartDate = (e) => {
+		setWorkStartDate(e.target.value)
+	}
+	const handleWorkEndDate = (e) => {
+		setWorkEndDate(e.target.value)
+	}
+	const handleWorkDescription = (e) => {
+		setWorkDescription(e.target.value)
+	}
+	const onWorkExperienceSubmit = (e) => {
+		e.preventDefault()
+		props.setWorkExperience([
+			...props.workExperience,
+			{
+				jobTitle: jobTitle,
+				companyCity: companyCity,
+				company: company,
+				workStartDate: workStartDate,
+				workEndDate: workEndDate,
+				workDescription: workDescription,
+				id: v4(),
+			},
+		])
+		setJobTitle('')
+		setCompanyCity('')
+		setCompany('')
+		setWorkStartDate('')
+		setWorkEndDate('')
+		setWorkDescription('')
+		toggleForm('workExperienceForm')
+	}
+	const onWorkExperienceDelete = (id) => {
+		props.setWorkExperience(
+			props.workExperience.filter((work) => work.id !== id)
+		)
+	}
+	const onWorkExperienceEdit = (id) => {
+		const workExperience = props.workExperience.find((work) => work.id === id)
+		setJobTitle(workExperience.jobTitle)
+		setCompanyCity(workExperience.companyCity)
+		setCompany(workExperience.company)
+		setWorkStartDate(workExperience.workStartDate)
+		setWorkEndDate(workExperience.workEndDate)
+		setWorkDescription(workExperience.workDescription)
+		onWorkExperienceDelete(id)
+	}
 
 	// Interests
 	const handleInterest = (e) => {
@@ -151,36 +213,36 @@ const Experiences = (props) => {
 		</li>
 	))
 
-	// const workExperienceList = props.workExperience.map((work) => (
-	// 	<li key={work.id}>
-	// 		<hr />
-	// 		<div className={styles.inputDuo}>
-	// 			<div className={styles.inputGroup}>
-	// 				<h3>{work.jobTitle}</h3>
-	// 				<p>
-	// 					{work.workStartDate} / {work.workEndDate}
-	// 				</p>
-	// 			</div>
-	// 			<div className={styles.editList}>
-	// 				<button
-	// 					onClick={() => {
-	// 						props.onWorkExperienceDelete(work.id)
-	// 					}}
-	// 				>
-	// 					🗑️
-	// 				</button>
-	// 				<button
-	// 					onClick={() => {
-	// 						props.onWorkExperienceEdit(work.id)
-	// 						toggleForm('workExperienceForm')
-	// 					}}
-	// 				>
-	// 					✏️
-	// 				</button>
-	// 			</div>
-	// 		</div>
-	// 	</li>
-	// ))
+	const workExperienceList = props.workExperience.map((work) => (
+		<li key={work.id}>
+			<hr />
+			<div className='inputDuo'>
+				<div className='inputGroup'>
+					<h3>{work.jobTitle}</h3>
+					<p>
+						{work.workStartDate} / {work.workEndDate}
+					</p>
+				</div>
+				<div className='editList'>
+					<button
+						onClick={() => {
+							onWorkExperienceDelete(work.id)
+						}}
+					>
+						🗑️
+					</button>
+					<button
+						onClick={() => {
+							onWorkExperienceEdit(work.id)
+							toggleForm('workExperienceForm')
+						}}
+					>
+						✏️
+					</button>
+				</div>
+			</div>
+		</li>
+	))
 
 	const educationForm = (
 		<form onSubmit={onEducationSubmit}>
@@ -294,88 +356,88 @@ const Experiences = (props) => {
 		</form>
 	)
 
-	// const workExperienceForm = (
-	// 	<form onSubmit={props.onWorkExperienceSubmit}>
-	// 		<div className={styles.inputDuo}>
-	// 			<div className={styles.inputGroup}>
-	// 				<label>Job Title</label>
-	// 				<input
-	// 					type='text'
-	// 					name='jobTitle'
-	// 					placeholder='e.g. software engineer'
-	// 					value={props.jobTitle}
-	// 					onChange={props.handleJobTitle}
-	// 					required
-	// 				/>
-	// 			</div>
-	// 			<div className={styles.inputGroup}>
-	// 				<label>City/Town</label>
-	// 				<input
-	// 					type='text'
-	// 					placeholder='e.g. San Francisco'
-	// 					value={props.companyCity}
-	// 					onChange={props.handleCompanyCity}
-	// 					required
-	// 				/>
-	// 			</div>
-	// 		</div>
-	// 		<div className={styles.inputGroup}>
-	// 			<label>Employer</label>
-	// 			<input
-	// 				type='text'
-	// 				placeholder='e.g. Google'
-	// 				value={props.company}
-	// 				onChange={props.handleCompany}
-	// 				required
-	// 			/>
-	// 		</div>
-	// 		<div className={styles.inputDuo}>
-	// 			<div className={styles.inputGroup}>
-	// 				<label>Start Date</label>
-	// 				<input
-	// 					type='date'
-	// 					value={props.workStartDate}
-	// 					onChange={props.handleWorkStartDate}
-	// 					required
-	// 				/>
-	// 			</div>
-	// 			<div className={styles.inputGroup}>
-	// 				<label>End Date</label>
-	// 				<input
-	// 					type='date'
-	// 					value={props.workEndDate}
-	// 					onChange={props.handleWorkEndDate}
-	// 					required
-	// 				/>
-	// 			</div>
-	// 		</div>
-	// 		<div className={styles.inputGroup}>
-	// 			<label>Description</label>
-	// 			<textarea
-	// 				value={props.workDescription}
-	// 				onChange={props.handleWorkDescription}
-	// 			/>
-	// 		</div>
-	// 		<div className={styles.btnGroup}>
-	// 			<button
-	// 				className={styles.first}
-	// 				type='button'
-	// 				onClick={() => {
-	// 					props.setJobTitle('')
-	// 					props.setCompanyCity('')
-	// 					props.setCompany('')
-	// 					props.setWorkStartDate('')
-	// 					props.setWorkEndDate('')
-	// 					props.setWorkDescription('')
-	// 					toggleForm('workExperienceForm')
-	// 				}}
-	// 			>
-	// 				🗑️ Delete
-	// 			</button>
-	// 			<button type='submit'>💾️ Save</button>
-	// 		</div>
-	// 	</form>
-	// )
+	const workExperienceForm = (
+		<form onSubmit={onWorkExperienceSubmit}>
+			<div className='inputDuo'>
+				<div className='inputGroup'>
+					<label>Job Title</label>
+					<input
+						type='text'
+						name='jobTitle'
+						placeholder='e.g. software engineer'
+						value={jobTitle}
+						onChange={handleJobTitle}
+						required
+					/>
+				</div>
+				<div className='inputGroup'>
+					<label>City/Town</label>
+					<input
+						type='text'
+						placeholder='e.g. San Francisco'
+						value={companyCity}
+						onChange={handleCompanyCity}
+						required
+					/>
+				</div>
+			</div>
+			<div className='inputGroup'>
+				<label>Employer</label>
+				<input
+					type='text'
+					placeholder='e.g. Google'
+					value={company}
+					onChange={handleCompany}
+					required
+				/>
+			</div>
+			<div className='inputDuo'>
+				<div className='inputGroup'>
+					<label>Start Date</label>
+					<input
+						type='date'
+						value={workStartDate}
+						onChange={handleWorkStartDate}
+						required
+					/>
+				</div>
+				<div className='inputGroup'>
+					<label>End Date</label>
+					<input
+						type='date'
+						value={workEndDate}
+						onChange={handleWorkEndDate}
+						required
+					/>
+				</div>
+			</div>
+			<div className='inputGroup'>
+				<label>Description</label>
+				<textarea
+					value={workDescription}
+					onChange={handleWorkDescription}
+				/>
+			</div>
+			<div className='btnGroup'>
+				<button
+					className='first'
+					type='button'
+					onClick={() => {
+						setJobTitle('')
+						setCompanyCity('')
+						setCompany('')
+						setWorkStartDate('')
+						setWorkEndDate('')
+						setWorkDescription('')
+						toggleForm('workExperienceForm')
+					}}
+				>
+					🗑️ Delete
+				</button>
+				<button type='submit'>💾️ Save</button>
+			</div>
+		</form>
+	)
 
 	return (
 		<div className='App'>
@@ -406,7 +468,7 @@ const Experiences = (props) => {
 			></ExperienceCard>
 
 			{/* Work experience Card */}
-			{/* <ExperienceCard
+			<ExperienceCard
 				cardTitle='Work Experience'
 				experienceName='work experience'
 				workExperience={props.workExperience}
@@ -420,7 +482,8 @@ const Experiences = (props) => {
 				formId='workExperienceForm'
 				list={workExperienceList}
 				form={workExperienceForm}
-			></ExperienceCard> */}
+				count={props.workExperience.length}
+			></ExperienceCard>
 			{/* ==========Interests Card ============ */}
 			<ExperienceCard
 				cardTitle='Interests'
