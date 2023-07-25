@@ -9,6 +9,15 @@ const Experiences = (props) => {
 			formContainer.style.display === 'block' ? 'none' : 'block'
 		formContainer.style.display = toggleStyle
 	}
+	const openForm = (id) => {
+		const formContainer = document.getElementById(id)
+		formContainer.style.display = 'block'
+	}
+
+	const closeForm = (id) => {
+		const formContainer = document.getElementById(id)
+		formContainer.style.display = 'none'
+	}
 	// Education
 	const [degree, setDegree] = useState('')
 	const [city, setCity] = useState('')
@@ -54,7 +63,7 @@ const Experiences = (props) => {
 		setStartDate('')
 		setEndDate('')
 		setDescription('')
-		toggleForm('educationForm')
+		closeForm('educationForm')
 	}
 	const onEducationDelete = (id) => {
 		props.setEducation(props.education.filter((edu) => edu.id !== id))
@@ -114,7 +123,7 @@ const Experiences = (props) => {
 		setWorkStartDate('')
 		setWorkEndDate('')
 		setWorkDescription('')
-		toggleForm('workExperienceForm')
+		closeForm('workExperienceForm')
 	}
 	const onWorkExperienceDelete = (id) => {
 		props.setWorkExperience(
@@ -130,6 +139,7 @@ const Experiences = (props) => {
 		setWorkEndDate(workExperience.workEndDate)
 		setWorkDescription(workExperience.workDescription)
 		onWorkExperienceDelete(id)
+		openForm('workExperienceForm')
 	}
 
 	// Interests
@@ -143,7 +153,7 @@ const Experiences = (props) => {
 			{ interest: props.interest, id: v4() },
 		])
 		props.setInterest('')
-		toggleForm('interestForm')
+		closeForm('interestForm')
 	}
 	const onInterestDelete = (id) => {
 		props.setInterests(props.interests.filter((interest) => interest.id !== id))
@@ -152,6 +162,7 @@ const Experiences = (props) => {
 		const interest = props.interests.find((interest) => interest.id === id)
 		props.setInterest(interest.interest)
 		onInterestDelete(id)
+		openForm('interestForm')
 	}
 
 	const educationList = props.education.map((edu) => (
@@ -175,7 +186,7 @@ const Experiences = (props) => {
 					<button
 						onClick={() => {
 							onEducationEdit(edu.id)
-							toggleForm('educationForm')
+							openForm('educationForm')
 						}}
 					>
 						✏️
@@ -203,7 +214,7 @@ const Experiences = (props) => {
 					<button
 						onClick={() => {
 							onInterestEdit(interest.id)
-							toggleForm('interestForm')
+							openForm('interestForm')
 						}}
 					>
 						✏️
@@ -234,7 +245,7 @@ const Experiences = (props) => {
 					<button
 						onClick={() => {
 							onWorkExperienceEdit(work.id)
-							toggleForm('workExperienceForm')
+							openForm('workExperienceForm')
 						}}
 					>
 						✏️
@@ -317,7 +328,7 @@ const Experiences = (props) => {
 						setStartDate('')
 						setEndDate('')
 						setDescription('')
-						toggleForm('educationForm')
+						closeForm('educationForm')
 					}}
 				>
 					🗑️ Delete
@@ -346,7 +357,7 @@ const Experiences = (props) => {
 					type='button'
 					onClick={() => {
 						props.setInterest('')
-						toggleForm('interestForm')
+						closeForm('interestForm')
 					}}
 				>
 					🗑️ Delete
@@ -429,7 +440,7 @@ const Experiences = (props) => {
 						setWorkStartDate('')
 						setWorkEndDate('')
 						setWorkDescription('')
-						toggleForm('workExperienceForm')
+						closeForm('workExperienceForm')
 					}}
 				>
 					🗑️ Delete
