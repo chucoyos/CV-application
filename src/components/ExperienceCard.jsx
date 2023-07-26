@@ -49,12 +49,14 @@ const ExperienceCard = (props) => {
 					{props.form}
 				</div>{' '}
 				{/* end div id= educationForm */}
-				<button
-					className='add'
-					onClick={toggleForm}
-				>
-					<span>+</span>Add another {props.experienceName}
-				</button>
+				{props.isArray && (
+					<button
+						className='add'
+						onClick={toggleForm}
+					>
+						<span>+</span>Add another {props.experienceName}
+					</button>
+				)}
 			</div>
 
 			{/* End Card body */}

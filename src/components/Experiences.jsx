@@ -4,12 +4,6 @@ import { v4 } from 'uuid'
 import Button from './Button'
 
 const Experiences = (props) => {
-	const toggleForm = (id) => {
-		const formContainer = document.getElementById(id)
-		const toggleStyle =
-			formContainer.style.display === 'block' ? 'none' : 'block'
-		formContainer.style.display = toggleStyle
-	}
 	const openForm = (id) => {
 		const formContainer = document.getElementById(id)
 		formContainer.style.display = 'block'
@@ -165,6 +159,180 @@ const Experiences = (props) => {
 		onInterestDelete(id)
 		openForm('interestForm')
 	}
+	// resume objective
+	const [objective, setObjective] = useState('')
+	const handleResumeObjective = (e) => {
+		setObjective(e.target.value)
+	}
+	const onResumeObjectiveSubmit = (e) => {
+		e.preventDefault()
+		props.setResumeObjective({ objective: objective })
+	}
+	// skills
+	const [skill, setSkill] = useState('')
+	const [level, setLevel] = useState('beginner')
+	const handleSkill = (e) => {
+		setSkill(e.target.value)
+	}
+	const handleLevel = (e) => {
+		setLevel(e.target.value)
+	}
+	const onSkillSubmit = (e) => {
+		e.preventDefault()
+		props.setSkills([...props.skills, { skill: skill, level: level, id: v4() }])
+		setSkill('')
+		setLevel('beginner')
+		closeForm('skillForm')
+	}
+	const onSkillDelete = (id) => {
+		props.setSkills(props.skills.filter((skill) => skill.id !== id))
+	}
+	const onSkillEdit = (id) => {
+		const skill = props.skills.find((skill) => skill.id === id)
+		setSkill(skill.skill)
+		setLevel(skill.level)
+		onSkillDelete(id)
+		openForm('skillForm')
+	}
+	// languages
+	const [language, setLanguage] = useState('')
+	const handleLanguage = (e) => {
+		setLanguage(e.target.value)
+	}
+	const onLanguageSubmit = (e) => {
+		e.preventDefault()
+		props.setLanguages([
+			...props.languages,
+			{ language: language, level: level, id: v4() },
+		])
+		setLanguage('')
+		setLevel('beginner')
+		closeForm('languageForm')
+	}
+	const onLanguageDelete = (id) => {
+		props.setLanguages(props.languages.filter((language) => language.id !== id))
+	}
+	const onLanguageEdit = (id) => {
+		const language = props.languages.find((language) => language.id === id)
+		setLanguage(language.language)
+		setLevel(language.level)
+		onLanguageDelete(id)
+		openForm('languageForm')
+	}
+
+	const skillsList = props.skills.map((skill) => (
+		<li key={skill.id}>
+			<hr />
+			<div className='inputDuo'>
+				<div className='inputGroup'>
+					<h3>{skill.skill}</h3>
+					<p>{skill.level}</p>
+				</div>
+				<div className='editList'>
+					<button
+						onClick={() => {
+							onSkillDelete(skill.id)
+						}}
+					>
+						🗑️
+					</button>
+					<button
+						onClick={() => {
+							onSkillEdit(skill.id)
+							openForm('skillForm')
+						}}
+					>
+						✏️
+					</button>
+				</div>
+			</div>
+		</li>
+	))
+	const languagesList = props.languages.map((language) => (
+		<li key={language.id}>
+			<hr />
+			<div className='inputDuo'>
+				<div className='inputGroup'>
+					<h3>{language.language}</h3>
+					<p>{language.level}</p>
+				</div>
+				<div className='editList'>
+					<button
+						onClick={() => {
+							onLanguageDelete(language.id)
+						}}
+					>
+						🗑️
+					</button>
+					<button
+						onClick={() => {
+							onLanguageEdit(language.id)
+							openForm('languageForm')
+						}}
+					>
+						✏️
+					</button>
+				</div>
+			</div>
+		</li>
+	))
+
+	const languageForm = (
+		<form onSubmit={onLanguageSubmit}>
+			<div className='inputDuo'>
+				<div className='inputGroup'>
+					<label>Language</label>
+					<input
+						type='text'
+						name='language'
+						placeholder='e.g. English'
+						value={language}
+						onChange={handleLanguage}
+						required
+					/>
+				</div>
+				<div className='inputGroup'>
+					<label>Level</label>
+					<select
+						name='level'
+						value={level}
+						onChange={handleLevel}
+						required
+					>
+						<option value='beginner'>Beginner</option>
+						<option value='intermediate'>Intermediate</option>
+						<option value='expert'>Expert</option>
+					</select>
+				</div>
+			</div>
+			<div className='btnGroup'>
+				<button
+					className='first'
+					type='button'
+					onClick={() => {
+						setLanguage('')
+						setLevel('beginner')
+						closeForm('languageForm')
+					}}
+				>
+					🗑️ Delete
+				</button>
+				<button type='submit'>💾️ Save</button>
+			</div>
+		</form>
+	)
+
+	const resumeObjectiveForm = (
+		<form onSubmit={onResumeObjectiveSubmit}>
+			<div className='inputGroup'>
+				<label>Resume Objective</label>
+				<textarea
+					value={objective}
+					onChange={handleResumeObjective}
+				/>
+			</div>
+		</form>
+	)
 
 	const educationList = props.education.map((edu) => (
 		<li key={edu.id}>
@@ -450,6 +618,50 @@ const Experiences = (props) => {
 			</div>
 		</form>
 	)
+	const skillsForm = (
+		<form onSubmit={onSkillSubmit}>
+			<div className='inputDuo'>
+				<div className='inputGroup'>
+					<label>Skill</label>
+					<input
+						type='text'
+						name='skill'
+						placeholder='e.g. React'
+						value={skill}
+						onChange={handleSkill}
+						required
+					/>
+				</div>
+				<div className='inputGroup'>
+					<label>Level</label>
+					<select
+						name='level'
+						value={level}
+						onChange={handleLevel}
+						required
+					>
+						<option value='beginner'>Beginner</option>
+						<option value='intermediate'>Intermediate</option>
+						<option value='expert'>Expert</option>
+					</select>
+				</div>
+			</div>
+			<div className='btnGroup'>
+				<button
+					className='first'
+					type='button'
+					onClick={() => {
+						setSkill('')
+						setLevel('beginner')
+						closeForm('skillForm')
+					}}
+				>
+					🗑️ Delete
+				</button>
+				<button type='submit'>💾️ Save</button>
+			</div>
+		</form>
+	)
 
 	return (
 		<div className='App'>
@@ -477,6 +689,18 @@ const Experiences = (props) => {
 				formId='educationForm'
 				form={educationForm}
 				count={props.education.length}
+				isArray={true}
+			></ExperienceCard>
+			{/* Resume objective */}
+			<ExperienceCard
+				cardTitle='Resume Objective'
+				resumeObjective={props.resumeObjective}
+				setResumeObjective={props.setResumeObjective}
+				divId='resumeObjectiveCard'
+				formId='resumeObjectiveForm'
+				form={resumeObjectiveForm}
+				count={props.resumeObjective.length}
+				isArray={false}
 			></ExperienceCard>
 
 			{/* Work experience Card */}
@@ -495,6 +719,7 @@ const Experiences = (props) => {
 				list={workExperienceList}
 				form={workExperienceForm}
 				count={props.workExperience.length}
+				isArray={true}
 			></ExperienceCard>
 			{/* ==========Interests Card ============ */}
 			<ExperienceCard
@@ -509,7 +734,43 @@ const Experiences = (props) => {
 				formId='interestForm'
 				form={interestsForm}
 				count={props.interests.length}
+				isArray={true}
 			></ExperienceCard>
+			{/* ==========Skills Card ============ */}
+			<ExperienceCard
+				cardTitle='Skills'
+				skills={props.skills}
+				setSkills={props.setSkills}
+				skill={props.skill}
+				setSkill={props.setSkill}
+				level={props.level}
+				setLevel={props.setLevel}
+				list={skillsList}
+				divId='skillsCard'
+				experienceName='Skill'
+				formId='skillForm'
+				form={skillsForm}
+				count={props.skills.length}
+				isArray={true}
+			></ExperienceCard>
+			{/* ==========Languages Card ============ */}
+			<ExperienceCard
+				cardTitle='Languages'
+				languages={props.languages}
+				setLanguages={props.setLanguages}
+				language={props.language}
+				setLanguage={props.setLanguage}
+				level={props.level}
+				setLevel={props.setLevel}
+				list={languagesList}
+				divId='languagesCard'
+				experienceName='Language'
+				formId='languageForm'
+				form={languageForm}
+				count={props.languages.length}
+				isArray={true}
+			></ExperienceCard>
+
 			<Button
 				text='Next step ﹥'
 				path='/template'
