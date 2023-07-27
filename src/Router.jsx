@@ -119,6 +119,9 @@ function Router() {
 							education={education}
 							workExperience={workExperience}
 							interests={interests}
+							resumeObjective={resumeObjective}
+							skills={skills}
+							languages={languages}
 						/>
 					),
 				},
