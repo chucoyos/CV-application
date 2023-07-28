@@ -1,11 +1,15 @@
+import { Link } from 'react-router-dom'
 function Oslo(props) {
 	return (
-		<div className='template'>
-			<div className=''>
+		<div className='template tooltip'>
+			<Link to='/'>
+				<span className='tooltipText'>Select template</span>
 				<hr className='duoHr' />
+
 				<h3 className='name'>
 					{props.generalInfo.name} {props.generalInfo.last}
 				</h3>
+
 				<hr className='duoHr' />
 				<hr className='mainHr' />
 				<p className='address'>
@@ -67,7 +71,8 @@ function Oslo(props) {
 						<p>∘ {interest.interest}</p>
 					</div>
 				))}
-			</div>
+				<span className='tooltipText'>Select template</span>
+			</Link>
 		</div>
 	)
 }

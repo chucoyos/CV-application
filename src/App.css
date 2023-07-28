@@ -346,15 +346,14 @@ textarea {
 	cursor: pointer;
 	margin-right: 24px;
 }
+
 .templates {
 	position: relative;
 	top: -160px;
-	display: flex;
-	justify-content: space-between;
-	margin-top: 16px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 	gap: 16px;
-	flex-wrap: wrap;
-	padding: 32px;
+	padding: 0 32px;
 }
 .template {
 	background-color: var(--secondary-color);
@@ -433,6 +432,33 @@ p {
 }
 .template .center {
 	text-align: center;
+}
+.template:hover {
+	border: 3px solid var(--oslo-primary-color);
+}
+
+.tooltipText {
+	font-size: 16px;
+	text-align: center;
+	background-color: black;
+	color: #fff;
+	border-radius: 6px;
+	padding: 5px;
+	position: relative;
+	visibility: hidden;
+}
+.tooltipText::after {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: black transparent transparent transparent;
+}
+.tooltip:hover .tooltipText {
+	visibility: visible;
 }
 .col-2 {
 	display: flex;
