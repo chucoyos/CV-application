@@ -4,6 +4,7 @@
 	--secondary-color: #ffffff;
 	--tertiary-color: #a39e9e;
 	--quaternary-color: #000000;
+	--oslo-primary-color: #66778f;
 }
 .App {
 	text-align: center;
@@ -359,6 +360,7 @@ textarea {
 	background-color: var(--secondary-color);
 	display: flex;
 	flex: 1;
+	justify-content: center;
 	margin: 32px auto;
 	padding: 32px;
 	border: none;
@@ -366,4 +368,78 @@ textarea {
 	box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.35);
 	-webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.35);
 	-moz-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.35);
+}
+.template hr {
+	border: none;
+	border-top: 0.5px solid #333;
+	color: #333;
+	overflow: visible;
+	text-align: center;
+	height: 5px;
+}
+
+.template hr:after {
+	background: #fff;
+	padding: 0 4px;
+	position: relative;
+	top: -13px;
+}
+.educationHr:after {
+	content: 'EDUCATION';
+	font-size: 12px;
+}
+.objectiveHr:after {
+	content: 'RESUME OBJECTIVE';
+	font-size: 12px;
+}
+.workExperienceHr:after {
+	content: 'WORK EXPERIENCE';
+	font-size: 12px;
+}
+.skillsHr:after {
+	content: 'SKILLS';
+	font-size: 12px;
+}
+.languagesHr:after {
+	content: 'LANGUAGES';
+	font-size: 12px;
+}
+.interestsHr:after {
+	content: 'INTERESTS';
+	font-size: 12px;
+}
+.duoHr {
+	margin: 0;
+	border-top: 1px solid var(--oslo-primary-color);
+}
+.template .mainHr {
+	border-top: 3px solid var(--oslo-primary-color);
+	margin-top: 0;
+}
+.template h3,
+p {
+	color: var(--oslo-primary-color);
+	font-size: small;
+}
+.template .name {
+	font-weight: bold;
+	text-align: center;
+	padding: 8px;
+	font-size: 24px;
+}
+.template .address {
+	text-align: center;
+	margin-top: -16px;
+}
+.template .center {
+	text-align: center;
+}
+.col-2 {
+	display: flex;
+	justify-content: space-between;
+}
+@media print {
+	.Nav {
+		display: none;
+	}
 }

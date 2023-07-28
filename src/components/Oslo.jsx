@@ -2,65 +2,66 @@ function Oslo(props) {
 	return (
 		<div className='template'>
 			<div className=''>
-				<hr />
-				<h3>
+				<hr className='duoHr' />
+				<h3 className='name'>
 					{props.generalInfo.name} {props.generalInfo.last}
 				</h3>
-				<hr />
-				<p>
+				<hr className='duoHr' />
+				<hr className='mainHr' />
+				<p className='address'>
 					{props.generalInfo.address}♦{props.generalInfo.phone}♦
 					{props.generalInfo.email}
 				</p>
-				<hr />
-				<h3>EDUCATION</h3>
+				<hr className='educationHr' />
 				{props.education.map((edu) => (
 					<div key={edu.id}>
-						<p>
-							∘ {edu.degree} in {edu.description}
+						<p className='center'>
+							{edu.degree} in {edu.description}
 						</p>
-						<p>
+						<p className='center'>
 							{edu.school} - {edu.city}
 						</p>
-						<p>
+						<p className='center'>
 							{edu.startDate} - {edu.endDate}
 						</p>
 					</div>
 				))}
-				<hr />
-				<h3>RESUME OBJECTIVE</h3>
+				<hr className='objectiveHr' />
 				<p>{props.resumeObjective.objective}</p>
-				<hr />
-				<h3>WORK EXPERIENCE</h3>
+				<hr className='workExperienceHr' />
 				{props.workExperience.map((work) => (
 					<div key={work.id}>
-						<p>∘ {work.jobTitle}</p>
 						<p>
-							{work.company} - {work.companyCity}
+							∘ {work.jobTitle} {work.company} - {work.companyCity}
 						</p>
-						<p>
+						{/* <p>
+							{work.company} - {work.companyCity}
+						</p> */}
+						<p className='center'>
 							{work.workStartDate} - {work.workEndDate}
 						</p>
 						<p>{work.workDescription}</p>
 					</div>
 				))}
-				<hr />
-				<h3>SKILLS</h3>
+				<hr className='skillsHr' />
 				{props.skills.map((skill) => (
-					<div key={skill.id}>
+					<div
+						key={skill.id}
+						className='col-2'
+					>
 						<p>∘ {skill.skill}</p>
 						<p>{skill.level}</p>
 					</div>
 				))}
-				<hr />
-				<h3>LANGUAGES</h3>
+				<hr className='languagesHr' />
 				{props.languages.map((language) => (
 					<div key={language.id}>
-						<p>∘ {language.language}</p>
-						<p>{language.level}</p>
+						<p>
+							∘ {language.language} {language.level}
+						</p>
 					</div>
 				))}
-				<hr />
-				<h3>INTERESTS</h3>
+				<hr className='interestsHr' />
 				{props.interests.map((interest) => (
 					<div key={interest.id}>
 						<p>∘ {interest.interest}</p>
