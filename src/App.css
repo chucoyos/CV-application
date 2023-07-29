@@ -469,3 +469,25 @@ p {
 		display: none;
 	}
 }
+@media (max-width: 768px) {
+	.templates {
+		padding: 0;
+		gap: 8px;
+	}
+	.decorationBar,
+	.Nav {
+		display: none;
+	}
+	.cardContainer,
+	.form-card,
+	.experiencesCard,
+	.templates {
+		width: 100%;
+		top: 0;
+	}
+	.card,
+	.experiencesCard {
+		width: 90%;
+		flex-direction: column;
+	}
+}

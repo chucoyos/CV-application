@@ -35,11 +35,7 @@ const NavBar = ({ path, text }) => {
 					/>
 				</>
 			)}
-			{location.pathname === '/general-details' && (
-				<>
-					<h1>Personal details</h1>
-				</>
-			)}
+			{location.pathname === '/general-details' && <h1>Personal details</h1>}
 			{location.pathname === '/experiences' && (
 				<>
 					<h1>My experiences</h1>
