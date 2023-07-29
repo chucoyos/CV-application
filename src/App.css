@@ -565,7 +565,8 @@ p {
 }
 
 @media (min-width: 768px) {
-	.movilNav {
+	.movilNav,
+	.header {
 		display: none;
 	}
 }
