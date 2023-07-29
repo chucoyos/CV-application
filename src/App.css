@@ -497,6 +497,16 @@ p {
 	transition: 0.5s;
 	overflow-x: hidden;
 	padding-top: 60px;
+	opacity: 0.9;
+}
+.slider a {
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #fff;
+	display: block;
+	transition: 0.3s;
+	background-color: var(--primary-color);
 }
 .sliderMenu {
 	display: flex;
