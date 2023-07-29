@@ -471,6 +471,10 @@ p {
 	background-color: var(--primary-color);
 	color: #fff;
 	padding: 8px;
+	border-radius: 0 0 32px 32px;
+	box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.35);
+	-webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.35);
+	-moz-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.35);
 }
 .movilNav button,
 .logy {
