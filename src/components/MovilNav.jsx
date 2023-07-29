@@ -5,6 +5,7 @@ function MovilNav() {
 	return (
 		<>
 			<div className='movilNav'>
+				<p className='logy'>CVproject</p>
 				<button onClick={openSlider}>𝄙</button>
 			</div>
 		</>
