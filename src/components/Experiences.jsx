@@ -665,6 +665,9 @@ const Experiences = (props) => {
 
 	return (
 		<div className='App'>
+			<div className='header'>
+				<h1>My experiences</h1>
+			</div>
 			{/* Education card */}
 			<ExperienceCard
 				cardTitle='Education and Qualifications'

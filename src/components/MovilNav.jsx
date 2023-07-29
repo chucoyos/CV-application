@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 function MovilNav() {
 	const openSlider = () => {
 		document.querySelector('.slider').style.width = '100%'
@@ -5,7 +7,9 @@ function MovilNav() {
 	return (
 		<>
 			<div className='movilNav'>
-				<p className='logy'>CVproject</p>
+				<Link to='/'>
+					<p className='logy'>CVproject</p>
+				</Link>
 				<button onClick={openSlider}>𝄙</button>
 			</div>
 		</>

@@ -3,6 +3,9 @@ import Button from './Button'
 const GeneralDetails = ({ generalInfo, setGeneralInfo }) => {
 	return (
 		<div className='App'>
+			<div className='header'>
+				<h1>Personal details</h1>
+			</div>
 			<div className='form-card'>
 				<p className='form-title'>Personal details</p>
 				<form>
@@ -99,10 +102,10 @@ const GeneralDetails = ({ generalInfo, setGeneralInfo }) => {
 					</div>
 				</form>
 			</div>
-				<Button
-					text='Next step ﹥'
-					path='/experiences'
-				/>
+			<Button
+				text='Next step ﹥'
+				path='/experiences'
+			/>
 		</div>
 	)
 }

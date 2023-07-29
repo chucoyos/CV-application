@@ -471,7 +471,6 @@ p {
 	background-color: var(--primary-color);
 	color: #fff;
 	padding: 8px;
-	border-radius: 0 0 32px 32px;
 	box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.35);
 	-webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.35);
 	-moz-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.35);
@@ -526,6 +525,17 @@ p {
 	background-color: var(--primary-color);
 	color: #fff;
 }
+.header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 32px;
+	background-color: var(--primary-color);
+	color: #fff;
+	padding: 8px;
+}
+/* media queries */
 @media print {
 	.Nav {
 		display: none;
@@ -553,6 +563,7 @@ p {
 		flex-direction: column;
 	}
 }
+
 @media (min-width: 768px) {
 	.movilNav {
 		display: none;
