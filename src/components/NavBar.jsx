@@ -26,9 +26,6 @@ const NavBar = ({ path, text }) => {
 			{location.pathname === '/' && (
 				<>
 					<h1>Create your professional Resume with CV project</h1>
-					<p className='subtitle'>
-						Create your own professional resume and download it
-					</p>
 					<Button
 						path='/general-details'
 						text='Create your Resume'
