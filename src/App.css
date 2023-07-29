@@ -537,8 +537,18 @@ p {
 }
 /* media queries */
 @media print {
-	.Nav {
+	/* print only html */
+	@page {
+		size: A4;
+		margin: 0;
+	}
+
+	.movilNav {
 		display: none;
+	}
+	.template {
+		box-shadow: none;
+		width: 100%;
 	}
 }
 @media (max-width: 768px) {

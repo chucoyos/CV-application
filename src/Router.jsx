@@ -5,6 +5,7 @@ import Home from './components/Home'
 import GeneralDetails from './components/GeneralDetails'
 import Experiences from './components/Experiences'
 import Template from './components/Template'
+import Oslo from './components/Oslo'
 import { useState } from 'react'
 
 function Router() {
@@ -115,6 +116,20 @@ function Router() {
 					path: '/template',
 					element: (
 						<Template
+							generalInfo={generalInfo}
+							education={education}
+							workExperience={workExperience}
+							interests={interests}
+							resumeObjective={resumeObjective}
+							skills={skills}
+							languages={languages}
+						/>
+					),
+				},
+				{
+					path: '/oslo',
+					element: (
+						<Oslo
 							generalInfo={generalInfo}
 							education={education}
 							workExperience={workExperience}

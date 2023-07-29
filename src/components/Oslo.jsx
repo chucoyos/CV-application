@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom'
 function Oslo(props) {
 	return (
-		<div className='template tooltip'>
-			<Link to='/'>
+		<div
+			className='template tooltip'
+			id='oslo'
+		>
+			<Link to='/oslo'>
 				<span className='tooltipText'>Select template</span>
 				<hr className='duoHr' />
 
