@@ -2,14 +2,16 @@ import { Link } from 'react-router-dom'
 function Oslo(props) {
 	return (
 		<>
-			<div className='header'>
-				<button
-					className='downloadBtn'
-					onClick={() => window.print()}
-				>
-					Download PDF
-				</button>
-			</div>
+			{location.pathname === '/oslo' && (
+				<div className='header'>
+					<button
+						className='downloadBtn'
+						onClick={() => window.print()}
+					>
+						Download PDF
+					</button>
+				</div>
+			)}
 			<div
 				className='template tooltip'
 				id='oslo'
