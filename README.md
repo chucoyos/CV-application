@@ -1,4 +1,4 @@
-# CV The Odin Project's CV Application
+# The Odin Project's CV Application
 
 ## Description
 
@@ -14,6 +14,6 @@ This project is a CV application that is built using React and Vite. It is a par
 ## Inspiration
 
 This project is inspired by [this](https://app.cvmaker.com/#/template/)
-and [this](https://www.myperfectresume.com/)web apps.
+and [this](https://www.myperfectresume.com/) web apps.
 
 ### The application is built using React and Vite.
