@@ -160,9 +160,8 @@ const Experiences = (props) => {
 		openForm('interestForm')
 	}
 	// resume objective
-	const [objective, setObjective] = useState('')
 	const handleResumeObjective = (e) => {
-		setObjective(e.target.value)
+		props.setResumeObjective({ objective: e.target.value })
 	}
 	const onResumeObjectiveSubmit = (e) => {
 		e.preventDefault()
@@ -327,9 +326,12 @@ const Experiences = (props) => {
 			<div className='inputGroup'>
 				<label>Resume Objective</label>
 				<textarea
-					value={objective}
+					value={props.resumeObjective.objective}
 					onChange={handleResumeObjective}
 				/>
+			</div>
+			<div className='btnGroup'>
+				<button type='submit'>💾️ Save</button>
 			</div>
 		</form>
 	)
