@@ -43,6 +43,16 @@ const NavBar = ({ path, text }) => {
 					<h1>Select template</h1>
 				</>
 			)}
+			{location.pathname === '/oslo' && (
+				<>
+					<button
+						className='downloadBtn'
+						onClick={() => window.print()}
+					>
+						Download PDF
+					</button>
+				</>
+			)}
 		</nav>
 	)
 }

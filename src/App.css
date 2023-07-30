@@ -535,12 +535,21 @@ p {
 	color: #fff;
 	padding: 8px;
 }
+.downloadBtn {
+	border: none;
+	background-color: var(--primary-color);
+	color: #fff;
+	cursor: pointer;
+	font-size: 24px;
+	font-weight: bold;
+	font-style: italic;
+}
 /* media queries */
 @media print {
 	/* print only html */
 	@page {
 		size: A4;
-		margin: 0;
+		margin: 0 32px 0 0;
 
 		h1,
 		h2,

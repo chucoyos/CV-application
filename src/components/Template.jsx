@@ -4,9 +4,6 @@ import Santiago from './Santiago'
 function Template(props) {
 	return (
 		<div className='templates'>
-			<div className='header'>
-				<h1>Select template</h1>
-			</div>
 			<Oslo
 				generalInfo={props.generalInfo}
 				education={props.education}
