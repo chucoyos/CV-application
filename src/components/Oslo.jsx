@@ -22,33 +22,35 @@ function Oslo(props) {
 				<hr className='educationHr' />
 				{props.education.map((edu) => (
 					<div key={edu.id}>
-						<p className='center'>
-							{edu.degree} in {edu.description}
-						</p>
-						<p className='center'>
-							{edu.school} - {edu.city}
-						</p>
-						<p className='center'>
+						<p className=''>
+							{edu.degree} in {edu.description} - {edu.school} - {edu.city}-
 							{edu.startDate} - {edu.endDate}
 						</p>
+
+						{/* <p className=''>
+							{edu.startDate} - {edu.endDate}
+						</p> */}
+						<p className='center'>♦</p>
 					</div>
 				))}
 				<hr className='objectiveHr' />
 				<p>{props.resumeObjective.objective}</p>
 				<hr className='workExperienceHr' />
 				{props.workExperience.map((work) => (
-					<div key={work.id}>
-						<p>
-							∘ {work.jobTitle} {work.company} - {work.companyCity}
-						</p>
-						{/* <p>
-							{work.company} - {work.companyCity}
-						</p> */}
-						<p className='center'>
-							{work.workStartDate} - {work.workEndDate}
-						</p>
+					<>
+						<div
+							key={work.id}
+							className='col-2'
+						>
+							<p>
+								∘ {work.jobTitle} {work.company} - {work.companyCity}
+							</p>
+							<p>
+								{work.workStartDate} - {work.workEndDate}
+							</p>
+						</div>
 						<p>{work.workDescription}</p>
-					</div>
+					</>
 				))}
 				<hr className='skillsHr' />
 				{props.skills.map((skill) => (
@@ -62,10 +64,12 @@ function Oslo(props) {
 				))}
 				<hr className='languagesHr' />
 				{props.languages.map((language) => (
-					<div key={language.id}>
-						<p>
-							∘ {language.language} {language.level}
-						</p>
+					<div
+						key={language.id}
+						className='col-2'
+					>
+						<p>∘ {language.language}</p>
+						<p>{language.level}</p>
 					</div>
 				))}
 				<hr className='interestsHr' />

@@ -356,12 +356,11 @@ textarea {
 	padding: 0 32px;
 }
 .template {
+	position: relative;
+	top: -128px;
 	background-color: var(--secondary-color);
-	display: flex;
-	flex: 1;
-	justify-content: center;
-	margin: 32px auto;
-	padding: 32px;
+	margin: 0 32px;
+	padding: 32px 32px;
 	border: none;
 	border-radius: 4px;
 	box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.35);
@@ -418,12 +417,12 @@ textarea {
 .template h3,
 p {
 	color: var(--oslo-primary-color);
-	font-size: small;
+	font-size: large;
 }
 .template .name {
 	font-weight: bold;
 	text-align: center;
-	padding: 8px;
+	padding: 16px;
 	font-size: 24px;
 }
 .template .address {
@@ -463,6 +462,7 @@ p {
 .col-2 {
 	display: flex;
 	justify-content: space-between;
+	margin: 16px 32px 0 0;
 }
 .movilNav {
 	display: flex;
@@ -541,6 +541,14 @@ p {
 	@page {
 		size: A4;
 		margin: 0;
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5 {
+			page-break-after: avoid;
+		}
 	}
 
 	.movilNav {
@@ -571,6 +579,9 @@ p {
 	.experiencesCard {
 		width: 90%;
 		flex-direction: column;
+	}
+	.template {
+		top: 32px;
 	}
 }
 
