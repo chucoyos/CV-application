@@ -54,6 +54,16 @@ const NavBar = ({ path, text }) => {
 					</button>
 				</>
 			)}
+			{location.pathname === '/santiago' && (
+				<>
+					<button
+						className='downloadBtn'
+						onClick={() => window.print()}
+					>
+						Download PDF
+					</button>
+				</>
+			)}
 		</nav>
 	)
 }

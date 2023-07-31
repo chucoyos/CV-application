@@ -41,7 +41,7 @@ function Santiago(props) {
 							{props.education.map((edu) => (
 								<div
 									key={edu.id}
-									className='duo'
+									className='line'
 								>
 									<p className='details'>
 										{edu.degree} in {edu.description} - {edu.school} -{' '}
@@ -59,60 +59,108 @@ function Santiago(props) {
 					>
 						<div
 							className='decoLine'
-							id='objectiveLine'
+							id=''
 						></div>
-						<div className='list duo'>
-							<p className='cardTitle'>Resume objective</p>
+
+						<p className='cardTitle'>Resume objective</p>
+						<div className='duo'>
 							<p className='details'>{props.resumeObjective.objective}</p>
 						</div>
 					</div>
 
 					{/* Work experience */}
-					<hr className='workExperienceHr' />
-					{props.workExperience.map((work) => (
-						<>
-							<div
-								key={work.id}
-								className='col-2'
-							>
-								<p>
-									∘ {work.jobTitle} {work.company} - {work.companyCity}
-								</p>
-								<p>
-									{work.workStartDate} - {work.workEndDate}
-								</p>
-							</div>
-							<p>{work.workDescription}</p>
-						</>
-					))}
-					{/* end resume */}
-					<hr className='skillsHr' />
-					{props.skills.map((skill) => (
+					<div
+						className='card list'
+						id='workExperience'
+					>
 						<div
-							key={skill.id}
-							className='col-2'
-						>
-							<p>∘ {skill.skill}</p>
-							<p>{skill.level}</p>
+							className='decoLine'
+							id=''
+						></div>
+						<p className='cardTitle'>Work Experience</p>
+						<div className='list'>
+							{props.workExperience.map((work) => (
+								<div
+									key={work.id}
+									className='duo'
+								>
+									<p className='details'>
+										{work.jobTitle} in {work.company} - {work.companyCity} -{' '}
+										{work.workStartDate} - {work.workEndDate}
+									</p>
+								</div>
+							))}
 						</div>
-					))}
-					<hr className='languagesHr' />
-					{props.languages.map((language) => (
+					</div>
+
+					{/* Skills */}
+					<div
+						className='card list'
+						id='skills'
+					>
 						<div
-							key={language.id}
-							className='col-2'
-						>
-							<p>∘ {language.language}</p>
-							<p>{language.level}</p>
+							className='decoLine'
+							id=''
+						></div>
+						<p className='cardTitle'>Skills</p>
+						<div className='list'>
+							{props.skills.map((skill) => (
+								<div
+									key={skill.id}
+									className='duo'
+								>
+									<p className='details'>
+										{skill.skill} - {skill.level}
+									</p>
+								</div>
+							))}
 						</div>
-					))}
-					<hr className='interestsHr' />
-					{props.interests.map((interest) => (
-						<div key={interest.id}>
-							<p>∘ {interest.interest}</p>
+					</div>
+
+					{/* Languages */}
+					<div
+						className='card list'
+						id='languages'
+					>
+						<div
+							className='decoLine'
+							id=''
+						></div>
+						<p className='cardTitle'>Languages</p>
+						<div className='list'>
+							{props.languages.map((language) => (
+								<div
+									key={language.id}
+									className=''
+								>
+									<p className='details'>
+										{language.language} - {language.level}
+									</p>
+								</div>
+							))}
 						</div>
-					))}
-					<span className='tooltipText'>Select template</span>
+					</div>
+					{/* Interests */}
+					<div
+						className='card list'
+						id='interests'
+					>
+						<div
+							className='decoLine'
+							id=''
+						></div>
+						<p className='cardTitle'>Interests</p>
+						<div className='list'>
+							{props.interests.map((interest) => (
+								<div
+									key={interest.id}
+									className='duo'
+								>
+									<p className='details'>{interest.interest}</p>
+								</div>
+							))}
+						</div>
+					</div>
 				</Link>
 			</div>
 		</>
