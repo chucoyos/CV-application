@@ -555,6 +555,65 @@ p {
 	box-sizing: border-box;
 	background-color: #fff;
 }
+/* Santiago template */
+.santiago {
+	background-color: #1c6b60;
+}
+.santiago .address {
+	color: #fff;
+}
+.flexGroup {
+	position: relative;
+	top: -100px;
+	display: flex;
+	justify-content: space-evenly;
+	margin-left: 32px;
+}
+
+.santiago .card {
+	width: 100%;
+}
+.santiago .list {
+	gap: 8px;
+}
+#name {
+	position: relative;
+	top: -85px;
+}
+#education {
+	position: relative;
+	top: -130px;
+	display: flex;
+}
+.cardTitle {
+	font-weight: bolder;
+	font-size: 20px;
+	color: #1c6b60;
+	margin-right: 64px;
+	width: 20%;
+}
+
+.details {
+	line-height: 2;
+	width: 68%;
+	align-self: center;
+}
+.decoLine {
+	position: absolute;
+	background-color: #1c6b60;
+	width: 30%;
+	height: 4px;
+	top: -1px;
+	left: 0;
+}
+#objectiveDiv {
+	position: relative;
+	top: -160px;
+}
+.duo {
+	display: flex;
+	justify-content: space-between;
+}
 
 /* media queries */
 @media print {

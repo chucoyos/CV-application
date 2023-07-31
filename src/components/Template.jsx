@@ -13,7 +13,7 @@ function Template(props) {
 				skills={props.skills}
 				languages={props.languages}
 			/>
-			<Oslo
+			<Santiago
 				generalInfo={props.generalInfo}
 				education={props.education}
 				workExperience={props.workExperience}
