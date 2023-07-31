@@ -595,8 +595,6 @@ p {
 	font-weight: bolder;
 	font-size: 16px;
 	color: #1c6b60;
-	/* width: 100%; */
-	/* align-self: center; */
 }
 
 .details {
@@ -608,6 +606,7 @@ p {
 .line {
 	display: flex;
 	flex-direction: column;
+	margin: 0 32px 0 0;
 }
 .decoLine {
 	position: absolute;

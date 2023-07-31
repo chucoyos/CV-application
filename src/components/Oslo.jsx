@@ -32,14 +32,22 @@ function Oslo(props) {
 					</p>
 					<hr className='educationHr' />
 					{props.education.map((edu) => (
-						<div key={edu.id}>
-							<p className=''>
-								{edu.degree} in {edu.description} - {edu.school} - {edu.city}-
-								{edu.startDate} - {edu.endDate}
-							</p>
-							<p className='center'>♦</p>
-						</div>
+						<>
+							<div
+								key={edu.id}
+								className='col-2'
+							>
+								<p>
+									∘ {edu.degree} {edu.school} - {edu.city}
+								</p>
+								<p>
+									{edu.startDate} - {edu.endDate}
+								</p>
+							</div>
+							<p>{edu.description}</p>
+						</>
 					))}
+
 					<hr className='objectiveHr' />
 					<p>{props.resumeObjective.objective}</p>
 					<hr className='workExperienceHr' />

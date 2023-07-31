@@ -44,9 +44,12 @@ function Santiago(props) {
 									className='line'
 								>
 									<p className='details'>
-										{edu.degree} in {edu.description} - {edu.school} -{' '}
-										{edu.city}-{edu.startDate} - {edu.endDate}
+										∘ {edu.degree} - {edu.school}
 									</p>
+									<p className='details'>
+										{edu.city} {edu.startDate} - {edu.endDate}{' '}
+									</p>
+									<p className='details'>{edu.description}</p>
 								</div>
 							))}
 						</div>
@@ -82,12 +85,16 @@ function Santiago(props) {
 							{props.workExperience.map((work) => (
 								<div
 									key={work.id}
-									className='duo'
+									className='line'
 								>
 									<p className='details'>
-										{work.jobTitle} in {work.company} - {work.companyCity} -{' '}
-										{work.workStartDate} - {work.workEndDate}
+										∘ {work.jobTitle} {work.company}
 									</p>
+									<p className='details'>
+										{work.companyCity} - {work.workStartDate}
+										{work.workEndDate}
+									</p>
+									<p className='details'>{work.description}</p>
 								</div>
 							))}
 						</div>
@@ -110,7 +117,7 @@ function Santiago(props) {
 									className='duo'
 								>
 									<p className='details'>
-										{skill.skill} - {skill.level}
+										∘ {skill.skill} - {skill.level}
 									</p>
 								</div>
 							))}
@@ -134,7 +141,7 @@ function Santiago(props) {
 									className=''
 								>
 									<p className='details'>
-										{language.language} - {language.level}
+										∘ {language.language} - {language.level}
 									</p>
 								</div>
 							))}
@@ -156,7 +163,7 @@ function Santiago(props) {
 									key={interest.id}
 									className='duo'
 								>
-									<p className='details'>{interest.interest}</p>
+									<p className='details'>∘ {interest.interest}</p>
 								</div>
 							))}
 						</div>
