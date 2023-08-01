@@ -34,9 +34,9 @@ function Santiago(props) {
 					{/* Education */}
 					<div
 						className='card list'
-						id='education'
+						id='educationId'
 					>
-						<p className='cardTitle'>Education</p>
+						<p className='cardTit'>Education</p>
 						<div className='list'>
 							{props.education.map((edu) => (
 								<div
@@ -65,7 +65,7 @@ function Santiago(props) {
 							id=''
 						></div>
 
-						<p className='cardTitle'>Resume objective</p>
+						<p className='cardTit'>Resume objective</p>
 						<div className='duo'>
 							<p className='details'>{props.resumeObjective.objective}</p>
 						</div>
@@ -80,7 +80,7 @@ function Santiago(props) {
 							className='decoLine'
 							id=''
 						></div>
-						<p className='cardTitle'>Work Experience</p>
+						<p className='cardTit'>Work Experience</p>
 						<div className='list'>
 							{props.workExperience.map((work) => (
 								<div
@@ -109,7 +109,7 @@ function Santiago(props) {
 							className='decoLine'
 							id=''
 						></div>
-						<p className='cardTitle'>Skills</p>
+						<p className='cardTit'>Skills</p>
 						<div className='list'>
 							{props.skills.map((skill) => (
 								<div
@@ -133,7 +133,7 @@ function Santiago(props) {
 							className='decoLine'
 							id=''
 						></div>
-						<p className='cardTitle'>Languages</p>
+						<p className='cardTit'>Languages</p>
 						<div className='list'>
 							{props.languages.map((language) => (
 								<div
@@ -156,7 +156,7 @@ function Santiago(props) {
 							className='decoLine'
 							id=''
 						></div>
-						<p className='cardTitle'>Interests</p>
+						<p className='cardTit'>Interests</p>
 						<div className='list'>
 							{props.interests.map((interest) => (
 								<div
